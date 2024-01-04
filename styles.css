@@ -22,16 +22,29 @@ h1 {
     cursor: pointer;
 }
 
+.card-management {
+    width: 300px;
+    background-color: #ffffff;
+    color: #495057;
+    box-shadow: 0 8px 4px -4px rgba(0, 0, 0, 0.8), 0 4px 4px 0 rgba(0, 0, 0, 0.64), 0 4px 12px 0 rgba(0, 0, 0, 0.48);
+    border-radius: 3px;
+    height: 150px;
+    margin: 0 auto;
+    cursor: pointer;
+    text-align: center;
+}
+
+.card-pair {
+    border: #613C84 solid 2px;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
 .card h2 {
     font-size: 38px;
     text-align: center;
     padding-top: 231px;
-}
-
-.card > div {
-    font-size: 24px;
-    text-align: center;
-    margin: 0 40px;
 }
 
 input {
@@ -78,8 +91,6 @@ button {
     font-size: 16px;
     cursor: pointer;
 }
-
-[v-cloak] { display: none }
 
 .score {
     margin-top: 50px;

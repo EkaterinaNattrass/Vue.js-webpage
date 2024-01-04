@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Flash Card App</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1 v-text="title"></h1>
+
+      <div :style="textSizeControlStyle">
+        Text size: <span @click="fontSize++">bigger</span> | <span @click="fontSize--">smaller</span>
+
+      </div>
+
+      <div :style="{'font-size': fontSize + 'px'}">
+        <div v-for="card in cards">
+          <div class="card-pair">
+            <h2 v-text="card.front" class="card-management"></h2>
+            <h2 v-text="card.back" class="card-management"></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="https://unpkg.com/vue@3.0.7/dist/vue.global.js"></script>
+    <script>
+      const cardApp = {
+        data() {
+          return {
+            cards,
+            title: "Cards manager",
+            fontSize: 15,
+            textSizeControlStyle: {
+                'text-align': 'center', 
+                cursor: 'pointer'}
+          };
+        },
+      };
+
+      const app = Vue.createApp(cardApp).mount("#app");
+    </script>
+  </body>
+</html>

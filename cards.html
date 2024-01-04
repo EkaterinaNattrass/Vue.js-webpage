@@ -10,8 +10,13 @@
     <div id="app">
       <h1 v-text="FlashCardGame"></h1>
       <div @click="flipped = !flipped" class="card">
-        <h2 v-text="flipped ? '' : cards[index].front"></h2>
-        <div v-html="flipped ? cards[index].back : '' "></div>
+        <h2 v-if="!flipped" v-text="front"></h2>
+        <div v-else>
+          <h2 v-text="back"></h2>
+          <div class="score">
+            <button @click.stop="delete" type="button">Delete</button>
+          </div>
+        </div>
       </div>
       <div class="navigation">
         <button @click="move(-1)" type="button">
@@ -44,10 +49,30 @@
           move(change) {
             if (this.cards[this.index + change]) {
               this.index += change;
-              this.flipped = false;
+            } else {
+              this.index = change == 1 ? 0 : this.cards.length - 1;
             }
-          } 
-        }
+            this.flipped = false;
+          },
+          delete() {
+            if ((this.cards.length = 1)) {
+              return alert("Well done");
+            }
+            this.cards.splice(this.index, 1);
+            if (!this.cards[this.index]) {
+              this.index = 0;
+            }
+            this.flipped = false;
+          },
+        },
+        computed: {
+          front() {
+            return this.cards[this.index].front;
+          },
+          back() {
+            return this.cards[this.index].back;
+          },
+        },
       };
       const app = Vue.createApp(cardApp).mount("#app");
     </script>
