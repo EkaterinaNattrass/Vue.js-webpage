@@ -8,23 +8,29 @@
   </head>
   <body>
     <div id="app" data-v-app>
-      <h1>Add the name and description</h1>
-      <form action="" method="Post">
-        <div>
-          <label for="name">Name: </label>
-          <input v-model.trim="message" type="text" name="name" id="name" /> ({{
-          message.length}} characters)
-        </div>
-        <div>
-          <label for="description">Description: </label>
-          <textarea
-            v-model.lazy="messageDescription"
-            name="description"
-            id="description"
-          ></textarea>
-          ({{ charactersLeft }} characters left)
-        </div>
-        <div class="options">
+      <h1>Send a message to us</h1>
+      <div>
+        <form action="" method="Post">
+          <div>
+            <label for="name">Your name: </label>
+            <input v-model.trim="message" type="text" name="name" id="name" />
+            ({{ message.length}} characters)
+          </div>
+          <div>
+            <label for="description">Message: </label>
+            <textarea
+              v-model.lazy="messageDescription"
+              name="description"
+              id="description"
+            ></textarea>
+            ({{ charactersLeft }} characters left)
+          </div>
+        </form>
+        <button @click.prevent="submit" type="submit">Send</button>
+      </div>
+      <h1>Settings</h1>
+      <div class="options">
+        <form action="" method="Post">
           <div>
             <input
               v-model="options"
@@ -47,45 +53,10 @@
             />
             <label for="time">Use time limit</label>
           </div>
-         
-         
-        </div>
-        <fieldset class="leech-action">
-          <legend>Leech action</legend>
-          <div>
-            <input
-              v-model="leech"
-              type="radio"
-              id="tag"
-              name="leech"
-              value="tag"
-            />
-            <label for="tag">tag</label>
-          </div>
-          <div>
-            <input
-              v-model="leech"
-              type="radio"
-              id="suspend"
-              name="leech"
-              value="suspend"
-            />
-            <label for="suspend">suspend</label>
-          </div>
-        </fieldset>
-        <div class="category">
-          <label for="category">Category:</label>
-          <select v-model="categoryId" name="category" id="category">
-            <option value="">Select</option>
-            <option value="1">Food</option>
-            <option value="2">Clothes</option>
-            <option value="3">Colours</option>
-            <option value="4">Furniture</option>
-          </select>
-        </div>
-        <button @click.prevent="submit" type="submit">Submit</button>
-      </form>
-      <div style="display: none;">selected options: {{ options}}</div>
+          <button @click.prevent="submit" type="submit">Submit</button>
+        </form> 
+      </div>
+      <div style="display: none">selected options: {{ options}}</div>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
@@ -95,20 +66,18 @@
             message: "",
             messageDescription: "",
             options: [],
-            leech: "tag",
-            categoryId:""
           };
         },
         computed: {
-            charactersLeft() {
-                return 200 - this.messageDescription.length
-            }
+          charactersLeft() {
+            return 200 - this.messageDescription.length;
+          },
         },
-         methods: {
-            submit() {
-                alert('submitting')
-            }
-        }
+        methods: {
+          submit() {
+            alert("submitting");
+          },
+        },
       };
       const app = Vue.createApp(cardApp).mount("#app");
     </script>

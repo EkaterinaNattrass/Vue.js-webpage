@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Dancing+Script:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
-    <title>Flash Cards</title>
+    <title>Colours Flash Cards</title>
   </head>
   <body>
     <div id="app">
@@ -26,10 +26,10 @@
           <i class="fa-solid fa-arrow-right fa-xl"></i>
         </button>
       </div>
-
       <div class="signUp">
-        <button><a href="index.html">Sign up</a></button>
+        <button><a href="manager.html">Back</a></button>
       </div>
+      
     </div>
 
     <script src="data.js"></script>
@@ -38,7 +38,7 @@
       const cardApp = {
         data() {
           return {
-            FlashCardGame: "Flashcard memory game",
+            FlashCardGame: "Colours flash cards",
             cards,
             index: 0,
             flipped: false,
@@ -46,19 +46,19 @@
         },
         methods: {
           move(change) {
-            if (this.cards[this.index + change]) {
+            if (this.cards[2][this.index + change]) {
               this.index += change;
             } else {
-                this.index = change == 1 ? 0 : this.cards.length - 1
+                this.index = change == 1 ? 0 : this.cards[2].length - 1
             } 
             this.flipped = false;
           },
           delete() {
-            if (this.cards.length = 1) {
+            if (this.cards[2].length = 1) {
                 return alert('Well done');
             }
-            this.cards.splice (this.index, 1);
-            if (!this.cards[this.index]) {
+            this.cards[2].splice (this.index, 1);
+            if (!this.cards[2][this.index]) {
                 this.index = 0;
             }
             this.flipped = false;
@@ -66,10 +66,10 @@
         },
         computed: {
             front() {
-              return this.cards[this.index].front
+              return this.cards[2][this.index].front
             },
             back() {
-                return this.cards[this.index].back
+                return this.cards[2][this.index].back
             }
           } 
       };

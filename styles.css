@@ -1,41 +1,52 @@
 body {
-    background-color: #D2D91A;
-    color: black;
-    font-family:  Helvetica, Arial, sans-serif;
+    background-color: #8C191C;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
 }
 
 h1 {
     margin: 80px auto;
-    font-size: 42px;
+    font-size: 40px;
     text-align: center;
-    min-height: 49px;
+}
+
+.home-page {
+    margin: none;
+    background-image: url("michael-fousert-lE5-z4nTCTQ-unsplash.jpg");
+    width: auto;
+    height: 100vh;
+    background-size: cover;
+}
+
+.home-page h1 {
+    margin-top: 100px;
 }
 
 .card {
     background-color: #ffffff;
-    color: #495057;
-    box-shadow: 0 8px 4px -4px rgba(0, 0, 0, 0.8), 0 4px 4px 0 rgba(0, 0, 0, 0.64), 0 4px 12px 0 rgba(0, 0, 0, 0.48);
-    border-radius: 3px;
+    color: black;
+    font-size: 50px;
     width: 50%;
-    height: 500px;
+    height: 400px;
     margin: 0 auto;
     cursor: pointer;
 }
 
 .card-management {
-    width: 300px;
+    width: 150px;
     background-color: #ffffff;
-    color: #495057;
-    box-shadow: 0 8px 4px -4px rgba(0, 0, 0, 0.8), 0 4px 4px 0 rgba(0, 0, 0, 0.64), 0 4px 12px 0 rgba(0, 0, 0, 0.48);
-    border-radius: 3px;
-    height: 150px;
-    margin: 0 auto;
+    color: black;
+    height: 100px;
     cursor: pointer;
     text-align: center;
 }
 
+.card-management h2 {
+    margin-top: 30px
+}
+
 .card-pair {
-    border: #613C84 solid 2px;
+    padding: 5px;
     margin: 5px;
     display: flex;
     flex-direction: row;
@@ -44,21 +55,21 @@ h1 {
 .card h2 {
     font-size: 38px;
     text-align: center;
-    padding-top: 231px;
+    padding-top: 180px;
 }
 
-input {
-    border: none;
-}
-
-textarea {
+input, textarea, button {
     border: none;
 }
 
 button {
-    border: none;
-    background-color: #613C84;
+    background-color: #232C60;
     color: white;
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
 }
 
 a {
@@ -83,15 +94,6 @@ input {
     font-size: 20px;
 }
 
-button {
-    margin: 0 20px;
-    width: 50px;
-    height: 50px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
 .score {
     margin-top: 50px;
     display: flex;
@@ -101,14 +103,6 @@ button {
 .score button {
     width: 200px;
     cursor: pointer;
-}
-
-.again {
-    background-color: #F6D55C;
-}
-
-.done {
-    text-align: center;
 }
 
 form {
@@ -123,12 +117,6 @@ label {
     vertical-align: middle;
 }
 
-button {
-    width: 275px;
-    border-radius: 5px;
-    margin-left: 105px;
-}
-
 .signUp {
     width: 50%;
     margin-top: 50px;
@@ -137,18 +125,16 @@ button {
 }
 
 input[type="text"] {
-    width: 275px;
     height: 40px;
-    border-radius: 5px;
-    font-size: 20px;
-    padding-left: 5px;
 }
 
 textarea {
-    width: 275px;
     height: 150px;
-    border-radius: 5px;
-    font-size: 20px;
+}
+
+input[type="text"], textarea {
+    width: 300px;
+    font-size: 18px;
     vertical-align: middle;
     padding-left: 5px;
 }
@@ -157,30 +143,38 @@ form div {
     margin-bottom: 20px;
 }
 
-.options {
-    padding-left: 100px;
-}
-
 .options label {
     display: block;
     width: auto;
+    font-size: 18px;
 }
 
-.leech-action {
-    margin-top: 15px;
-    width: 50%;
-}
-
-.leech-action label {
-    display: inline;
-}
-
-.category {
-    margin-top: 10px;
+.category-label {
+    margin-bottom: 10px;
+    font-size: 20px;
 }
 
 select {
-    height: 40px;
-    width: 275px;
-    font-size: 12px;
+    height: 50px;
+    width: 300px;
+    font-size: 18px;
+}
+
+.text-size {
+    width: auto;
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.centered-button {
+    display: flex;
+    justify-content: center;
 }

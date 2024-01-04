@@ -3,27 +3,65 @@
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Flash Card App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>Cards Management</title>
   </head>
   <body>
     <div id="app">
       <h1 v-text="title"></h1>
-
-      <div :style="textSizeControlStyle">
-        Text size: <span @click="fontSize++">bigger</span> | <span @click="fontSize--">smaller</span>
-
+      <div :style="textSizeControlStyle" class="text-size">
+        Text size: <span @click="fontSize++"><i class="fa-solid fa-plus fa-xs"></i> bigger </span> |
+         <span @click="fontSize--"><i class="fa-solid fa-minus fa-xs"></i> smaller</span>
       </div>
+      <div class="cards-container">
+        <div :style="{'font-size': fontSize + 'px'}">
+          <div class="centered-button">
+            <button><a href="food.html">Food</a></button>
+          </div>
 
-      <div :style="{'font-size': fontSize + 'px'}">
-        <div v-for="card in cards">
-          <div class="card-pair">
-            <h2 v-text="card.front" class="card-management"></h2>
-            <h2 v-text="card.back" class="card-management"></h2>
+          <div v-for="card in cards[0]">
+            <div class="card-pair">
+              <div class="card-management"><h2 v-text="card.front"></h2></div>
+              <div class="card-management"><h2 v-text="card.back"></h2></div>
+            </div>
+          </div>
+        </div>
+        <div :style="{'font-size': fontSize + 'px'}">
+          <div class="centered-button">
+            <button><a href="clothes.html">Clothes</a></button>
+          </div>
+          <div v-for="card in cards[1]">
+            <div class="card-pair">
+              <div class="card-management"><h2 v-text="card.front"></h2></div>
+              <div class="card-management"><h2 v-text="card.back"></h2></div>
+            </div>
+          </div>
+        </div>
+        <div :style="{'font-size': fontSize + 'px'}">
+          <div class="centered-button">
+            <button><a href="colours.html">Colours</a></button>
+          </div>
+          <div v-for="card in cards[2]">
+            <div class="card-pair">
+              <div class="card-management"><h2 v-text="card.front"></h2></div>
+              <div class="card-management"><h2 v-text="card.back"></h2></div>
+            </div>
+          </div>
+        </div>
+        <div :style="{'font-size': fontSize + 'px'}">
+          <div class="centered-button">
+            <button><a href="furniture.html">Furniture</a></button>
+          </div>
+          <div v-for="card in cards[3]">
+            <div class="card-pair">
+              <div class="card-management"><h2 v-text="card.front"></h2></div>
+              <div class="card-management"><h2 v-text="card.back"></h2></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
     <script src="data.js"></script>
     <script src="https://unpkg.com/vue@3.0.7/dist/vue.global.js"></script>
     <script>
@@ -31,16 +69,21 @@
         data() {
           return {
             cards,
-            title: "Cards manager",
+            title: "Cards management",
             fontSize: 15,
             textSizeControlStyle: {
-                'text-align': 'center', 
-                cursor: 'pointer'}
+              "text-align": "center",
+              cursor: "pointer",
+            },
           };
         },
       };
 
       const app = Vue.createApp(cardApp).mount("#app");
     </script>
+    <script
+    src="https://kit.fontawesome.com/c2f32b1a72.js"
+    crossorigin="anonymous"
+  ></script>
   </body>
 </html>
