@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Flash Cards</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1 v-text="FlashCardGame"></h1>
+      <div @click="flipped = !flipped" class="card">
+        <h2 v-text="flipped ? '' : cards[index].front"></h2>
+        <div v-html="flipped ? cards[index].back : '' "></div>
+      </div>
+      <div class="navigation">
+        <button @click="move(-1)" type="button">
+          <i class="fa-solid fa-arrow-left fa-xl"></i>
+        </button>
+        <button @click="move(1)" type="button">
+          <i class="fa-solid fa-arrow-right fa-xl"></i>
+        </button>
+      </div>
+
+      <div class="signUp">
+        <button><a :href="indexUrl">Sign up</a></button>
+      </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="https://unpkg.com/vue@3.0.7/dist/vue.global.js"></script>
+    <script>
+      const cardApp = {
+        data() {
+          return {
+            FlashCardGame: "Flashcard memory game",
+            cards,
+            index: 0,
+            flipped: false,
+            indexUrl: "index.html",
+          };
+        },
+        methods: {
+          move(change) {
+            if (this.cards[this.index + change]) {
+              this.index += change;
+              this.flipped = false;
+            }
+          } 
+        }
+      };
+      const app = Vue.createApp(cardApp).mount("#app");
+    </script>
+    <script
+      src="https://kit.fontawesome.com/c2f32b1a72.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
