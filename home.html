@@ -13,19 +13,40 @@
     <title>Norwegian Flashcards</title>
   </head>
   <body>
-    <div class="home-page">
-      <h1>Learn Norwegian Easily with Flash Cards</h1>
-      <div class="signUp">
-        <button><a href="manager.html">Browse cards</a></button>
-      </div>
-      <div class="signUp">
-        <button><a href="index.html">Contact us</a></button>
+    <div id="app">
+      <div class="home-page">
+        <h1 v-text="FlashCardGame"></h1>
+        <div class="signUp">
+          <browse></browse>
+        </div>
+        <div class="signUp">
+          <contact-us></contact-us>
+        </div>
       </div>
     </div>
+
     <script
       src="https://kit.fontawesome.com/c2f32b1a72.js"
       crossorigin="anonymous"
     ></script>
+    <script src="data.js"></script>
     <script src="https://unpkg.com/vue@3.0.7/dist/vue.global.js"></script>
+    <script>
+      const cardApp = {
+        data() {
+          return {
+            FlashCardGame: "Learn Norwegian Easily with Flash Cards",
+          };
+        },
+      };
+      const app = Vue.createApp(cardApp);
+      app.component("contact-us", {
+        template: '<button><a href="index.html">Contact us</a></button>',
+      });
+      app.component('browse', {
+        template: '<button><a href="manager.html">Browse cards</a></button>'
+      });
+      app.mount("#app");
+    </script>
   </body>
 </html>

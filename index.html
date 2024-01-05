@@ -9,7 +9,7 @@
   <body>
     <div id="app" data-v-app>
       <h1>Send a message to us</h1>
-      <div>
+      <div class="form">
         <form action="" method="Post">
           <div>
             <label for="name">Your name: </label>
@@ -24,39 +24,11 @@
               id="description"
             ></textarea>
             ({{ charactersLeft }} characters left)
-          </div>
+          </div>  
         </form>
-        <button @click.prevent="submit" type="submit">Send</button>
+        <button @click.prevent="submit" type="submit" class="send">Send</button>
+        <button type="submit" class="send"><a href="home.html">Back</a></button>
       </div>
-      <h1>Settings</h1>
-      <div class="options">
-        <form action="" method="Post">
-          <div>
-            <input
-              v-model="options"
-              true-value="on"
-              false-value="off"
-              type="checkbox"
-              id="reverse"
-              value="reverse"
-            />
-            <label for="reverse">Show reversed card</label>
-          </div>
-          <div>
-            <input
-              v-model="options"
-              true-value="on"
-              false-value="off"
-              type="checkbox"
-              id="time"
-              value="time"
-            />
-            <label for="time">Use time limit</label>
-          </div>
-          <button @click.prevent="submit" type="submit">Submit</button>
-        </form> 
-      </div>
-      <div style="display: none">selected options: {{ options}}</div>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>

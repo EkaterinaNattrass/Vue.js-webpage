@@ -4,9 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Dancing+Script:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel&family=Dancing+Script:wght@500&family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
     <title>Food Flash Cards</title>
   </head>
   <body>
@@ -14,9 +17,9 @@
       <h1 v-text="FlashCardGame"></h1>
       <div @click="flipped = !flipped" class="card">
         <h2 v-if="!flipped" v-text="front"></h2>
-        <h2 v-else="flipped" v-text="back">
-            <!-- <button @click.stop="delete" type="button">Delete</button> -->
-        </h2>
+        <div v-else>
+          <h2 v-text="back"></h2>
+        </div>
       </div>
       <div class="navigation">
         <button @click="move(-1)" type="button">
@@ -26,7 +29,6 @@
           <i class="fa-solid fa-arrow-right fa-xl"></i>
         </button>
       </div>
-
       <div class="signUp">
         <button><a href="manager.html">Back</a></button>
       </div>
@@ -49,29 +51,19 @@
             if (this.cards[0][this.index + change]) {
               this.index += change;
             } else {
-                this.index = change == 1 ? 0 : this.cards[0].length - 1
-            } 
-            this.flipped = false;
-          },
-          delete() {
-            if (this.cards[0].length = 1) {
-                return alert('Well done');
-            }
-            this.cards[0].splice (this.index, 1);
-            if (!this.cards[0][this.index]) {
-                this.index = 0;
+              this.index = change == 1 ? 0 : this.cards[0].length - 1;
             }
             this.flipped = false;
           }
         },
         computed: {
-            front() {
-              return this.cards[0][this.index].front
-            },
-            back() {
-                return this.cards[0][this.index].back
-            }
-          } 
+          front() {
+            return this.cards[0][this.index].front;
+          },
+          back() {
+            return this.cards[0][this.index].back;
+          },
+        },
       };
       const app = Vue.createApp(cardApp).mount("#app");
     </script>
